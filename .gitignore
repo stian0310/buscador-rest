@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pyenv
+.python-version
+
+# Environments
+.venv
+venv/
+ENV/
+
+# Project
+.env
+.envs/*
+!.envs/.local/
+
+#databases
+/data

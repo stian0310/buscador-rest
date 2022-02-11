@@ -1,0 +1,1 @@
+from .searchs import Search
