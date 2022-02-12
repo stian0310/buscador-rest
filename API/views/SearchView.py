@@ -16,7 +16,9 @@ from weasyprint import HTML
 from weasyprint.fonts import FontConfiguration
 
 
-class SearchView( mixins.ListModelMixin,
+class SearchView(
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
     viewsets.GenericViewSet):
 
     queryset = Search.objects.all()

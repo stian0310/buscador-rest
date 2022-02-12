@@ -23,7 +23,7 @@ class SearchCreateUpdateSerializer(serializers.Serializer):
 
   def save(self, **kwargs):
     ti = timezone.now()
-    # ti = timezone.now()-timedelta(days=1)
+    # ti = timezone.now()-timedelta(days=2)
     try:
       obj = Search.objects.get(words = self.data['words'])
       obj.totalmatch += 1

@@ -10,12 +10,19 @@
       </tr>
     </thead>
     <tbody>
-      {% for search in searchs %}
       <tr>
         <td><a href="{% url 'detail' search.id %}">{{ search.words }} <i class="bi bi-arrow-right"></i></a> {{ search.totalmatch }}</td>
+      </tr>
+      <tr>
+        <th>Veces buscada <i class="bi bi-arrow-right"></i> Fecha</th>
+      </tr>
+      {% for metadata in search.metadatas %}
+      <tr>
+        <td>{{ metadata.match }} <i class="bi bi-arrow-right"></i> {{ metadata.date }} </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  <a href="{% url 'index' %}"><i class="bi bi-arrow-left"></i>volver</a>
 </div>
 {% endblock %}
