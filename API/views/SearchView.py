@@ -21,10 +21,10 @@ class SearchView( mixins.ListModelMixin,
 
     queryset = Search.objects.all()
     serializer_class = SearchSerializer
-    pagination_class =  LimitOffsetPagination
+    # pagination_class =  LimitOffsetPagination
 
     def get_serializer_class(self):
-        if self.action in ['create', 'update', 'partial_update']:
+        if self.action in ['create']:
             return SearchCreateUpdateSerializer
         else:
             return self.serializer_class
@@ -47,7 +47,7 @@ class SearchView( mixins.ListModelMixin,
     @action(detail=False, methods=['get',])
     def report(self, request):
         searchs = Search.objects.all()
-        context = {"searchs": searchs}
+        context = {"searchs": SearchSerializer(searchs, many=True).data}
         html = render_to_string("reports.html", context)
         response = HttpResponse(content_type="application/pdf")
         font_config = FontConfiguration()

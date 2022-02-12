@@ -28,9 +28,9 @@
           </thead>
           <tbody>
             {% for search in searchs %}
-            <tr>
-              <td>{{search.words}}</td>
-              <td>{{ search.match }}</td>
+            <tr>              
+              <td>{{ search.words }}</td>
+              <td>{{ search.totalmatch }}</td>
             </tr>
             {% endfor %}
           </tbody>
